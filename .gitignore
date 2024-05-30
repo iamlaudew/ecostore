@@ -1,0 +1,17 @@
+# Ignorar archivos y carpetas innecesarias
+node_modules/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+
+# Ignorar archivos compilados
+*.class
+*.dll
+*.exe
+*.o
+*.so

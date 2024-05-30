@@ -11,6 +11,16 @@ body {
   font-size: 16px;
 }
 
+section {
+  width: 100%;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0px 16px;
+}
+section h3 {
+  font-size: 24px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -52,7 +62,6 @@ article {
   display: flex;
   flex-direction: column;
   padding: 0px 16px;
-  background-color: lavender;
 }
 @media (min-width: 768px) {
   article {
@@ -61,7 +70,6 @@ article {
     margin: auto;
     max-width: 1200px;
     flex-direction: row;
-    background-color: aquamarine;
   }
 }
 article .impact-section {
@@ -93,6 +101,9 @@ article .impact-section button {
   color: #ffefe7;
   cursor: pointer;
 }
+article .impact-section button:hover {
+  background-color: #7c6a0a;
+}
 @media (min-width: 1024px) {
   article .impact-section button {
     align-self: flex-start;
@@ -110,6 +121,49 @@ article .image-section {
 }
 article .image-section img {
   width: 80%;
+}
+
+.health-products, .forniture-products {
+  padding: 24px 0;
+}
+.health-products h3, .forniture-products h3 {
+  margin-bottom: 60px;
+}
+.health-products .card-section, .forniture-products .card-section {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.health-products .card-section .product-card, .forniture-products .card-section .product-card, .health-products .card-section .product-card--forniture, .forniture-products .card-section .product-card--forniture {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  width: 250px;
+  height: 440px;
+  overflow: hidden;
+  background-color: #ffdac6;
+  border-radius: 8px;
+}
+.health-products .card-section .product-card h4, .forniture-products .card-section .product-card h4, .health-products .card-section .product-card--forniture h4, .forniture-products .card-section .product-card--forniture h4 {
+  font-size: 24px;
+}
+.health-products .card-section .product-card .product-image, .forniture-products .card-section .product-card .product-image, .health-products .card-section .product-card--forniture .product-image, .forniture-products .card-section .product-card--forniture .product-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.health-products .card-section .product-card .product-image img, .forniture-products .card-section .product-card .product-image img, .health-products .card-section .product-card--forniture .product-image img, .forniture-products .card-section .product-card--forniture .product-image img {
+  width: 100%;
+}
+.health-products .card-section .product-card--forniture, .forniture-products .card-section .product-card--forniture {
+  background-color: #BABD8D;
+  color: #ffefe7;
 }
 
 footer {

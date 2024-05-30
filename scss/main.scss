@@ -2,7 +2,7 @@
 
 $primary-color:#ffefe7;
 $secondaty-color: #ffdac6;
-$tertiary-color: #babd8d;
+$tertiary-color: #BABD8D;
 $quarter-color: #fa9500;
 $primary-text-color:#7c6a0a;
 $font-stack: "IBM Plex Sans", sans-serif;
@@ -21,6 +21,8 @@ $font-stack: "IBM Plex Sans", sans-serif;
   }
 }
 
+//Section estilos globales
+
 *{
   box-sizing: border-box;
   margin: 0px;
@@ -32,6 +34,18 @@ body{
   color: $primary-text-color;
   font-size: 16px;
 }
+section{
+  width: 100%;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0px 16px;
+  h3{
+    font-size: 24px;
+  }
+}
+
+// Barra de navegación
+
 nav{
   display: flex;
   justify-content: space-between;
@@ -64,18 +78,18 @@ nav{
   }
 }
 
+// Inicio Article
+
 article{
   display: flex;
   flex-direction: column;
   padding: 0px 16px;
-  background-color: lavender;
   @include respond-to(tablet) {
     justify-content: space-between;
     align-items: center;
     margin: auto;
     max-width: 1200px;
     flex-direction: row;
-    background-color: aquamarine;
   }
   .impact-section{
     padding: 24px 0px;
@@ -102,6 +116,9 @@ article{
       font-size: 20px;
       color: $primary-color;
       cursor: pointer;
+      &:hover{
+        background-color: $primary-text-color;
+      }
       @include respond-to(laptop){
       align-self: flex-start;
       }
@@ -119,6 +136,61 @@ article{
     }
   }
 }
+
+// Productos salud
+
+.health-products{
+  padding: 24px 0;
+  h3{
+    margin-bottom: 60px;
+  }
+  .card-section{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    .product-card{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px;
+      width: 250px;
+      height: 440px;
+      overflow: hidden;
+      background-color: $secondaty-color;
+      border-radius: 8px;
+      h4{
+        font-size: 24px;
+      }
+      .product-image{
+        width: 100%;
+        height: 250px;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .product-card--forniture{
+      @extend .product-card;
+      background-color: $tertiary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+// Productos muebles
+
+.forniture-products{
+  @extend .health-products;
+}
+
+// Footer
+
 footer{
 
   background-color: $quarter-color;

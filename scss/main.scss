@@ -1,0 +1,128 @@
+// Variables
+
+$primary-color:#ffefe7;
+$secondaty-color: #ffdac6;
+$tertiary-color: #babd8d;
+$quarter-color: #fa9500;
+$primary-text-color:#7c6a0a;
+$font-stack: "IBM Plex Sans", sans-serif;
+
+//Mixins
+
+@mixin respond-to($breackpoint){
+  @if $breackpoint== phmd {
+    @media (min-width:375px){@content;}
+  }@else if $breackpoint == phlg {
+    @media (min-width:425px) {@content;}
+  }@else if $breackpoint == tablet {
+    @media (min-width:768px) {@content;}
+  }@else if $breackpoint == laptop {
+    @media (min-width:1024px) {@content;}
+  }
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  background-color: $primary-color;
+  font-family: $font-stack;
+  color: $primary-text-color;
+  font-size: 16px;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 24px;
+  h1{
+    font-size: 24px;
+    @include respond-to(tablet){
+      font-size: 32px;
+    }
+  
+  }
+  .icons{
+    display: flex;
+    gap: 8px;
+    button{
+      padding: 4px;
+      height: fit-content;
+      width: fit-content;
+      background-color: transparent;
+      border-style: none;
+      cursor: pointer;
+      @include respond-to(tablet){
+        padding: 8px;
+      }
+    }
+  }
+}
+
+article{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  background-color: lavender;
+  @include respond-to(tablet) {
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+    flex-direction: row;
+    background-color: aquamarine;
+  }
+  .impact-section{
+    padding: 24px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+    @include respond-to(tablet) {
+    width: 50%;
+    }
+    h2{
+      font-size: 48px;
+    }
+    p{
+      line-height: 1.5;
+    }
+    button{
+      align-self: center;
+      background-color: $quarter-color;
+      border: none;
+      padding: 18px 42px;
+      border-radius:50px;
+      font-family: $font-stack;
+      font-weight: 500;
+      font-size: 20px;
+      color: $primary-color;
+      cursor: pointer;
+      @include respond-to(laptop){
+      align-self: flex-start;
+      }
+    }
+  }
+  .image-section{
+    padding: 24px 0px;
+    text-align: center;
+    @include respond-to(tablet) {
+      text-align: right;
+      width: 50%;
+      }
+    img{
+      width: 80%;
+    }
+  }
+}
+footer{
+
+  background-color: $quarter-color;
+  width: 100%;
+  height: 250px;
+  color: $primary-color;
+}

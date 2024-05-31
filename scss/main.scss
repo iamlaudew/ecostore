@@ -87,16 +87,27 @@ nav{
   .icons{
     @include flexbox(row, space-between, center);
     gap: 8px;
-    button{
+    button {
       padding: 4px;
       height: fit-content;
       width: fit-content;
       background-color: transparent;
-      border-style: none;
+      border: none;
       cursor: pointer;
-      @include respond-to(tablet){
+      &:hover {
+        background-color: lighten($secondary-color, 50%);
+      }
+      &:focus {
+        background-color: lighten($secondary-color, 70%);
+      }
+      @include respond-to(tablet) {
         padding: 8px;
       }
+    }
+    
+    button svg {
+      width: 36px;
+      height: 36px;
     }
   }
 }
@@ -123,22 +134,43 @@ article{
     p{
       line-height: 1.5;
     }
-    button{
+    button {
       align-self: center;
       background-color: $quarter-color;
       border: none;
       padding: 18px 42px;
-      border-radius:50px;
+      border-radius: 50px;
       font-family: $font-stack;
       font-weight: 500;
       font-size: 20px;
       color: $primary-color;
       cursor: pointer;
-      &:hover{
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    
+      &:hover {
         background-color: $primary-text-color;
+        transform: translateY(-2px);
       }
-      @include respond-to(laptop){
-      align-self: flex-start;
+    
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+      }
+    
+      &:active {
+        background-color: darken($primary-text-color, 10%);
+        transform: translateY(2px);
+      }
+    
+      &:disabled {
+        background-color: lighten($quarter-color, 20%);
+        color: lighten($primary-color, 40%);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    
+      @include respond-to(laptop) {
+        align-self: flex-start;
       }
     }
   }
@@ -254,7 +286,7 @@ article{
     }
     .gallery-cards{
       width: 100%;
-      @include flexColumntoRow(column, center, space-around);
+      @include flexColumntoRow(column, space-around, center);
       align-items: center;
       img{
         border-radius: 8px;
@@ -297,7 +329,7 @@ footer{
     padding: 32px 16px;
     max-width: 1200px;
     margin: auto;
-    @include flexColumntoRow(column, center, space-around);
+    @include flexColumntoRow(column, space-around, center);
     gap: 32px;
   }
 }

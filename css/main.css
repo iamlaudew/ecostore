@@ -52,13 +52,17 @@ nav .icons button {
   width: -moz-fit-content;
   width: fit-content;
   background-color: transparent;
-  border-style: none;
+  border: none;
   cursor: pointer;
 }
 @media (min-width: 768px) {
   nav .icons button {
     padding: 8px;
   }
+}
+nav .icons button svg {
+  width: 36px;
+  height: 36px;
 }
 
 article {
@@ -111,9 +115,25 @@ article .impact-section button {
   font-size: 20px;
   color: #ffefe7;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 article .impact-section button:hover {
   background-color: #7c6a0a;
+  transform: translateY(-2px);
+}
+article .impact-section button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 239, 231, 0.5);
+}
+article .impact-section button:active {
+  background-color: #4d4206;
+  transform: translateY(2px);
+}
+article .impact-section button:disabled {
+  background-color: #ffbf61;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 @media (min-width: 1024px) {
   article .impact-section button {
@@ -269,15 +289,15 @@ article .image-section img {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-items: space-around;
   align-items: center;
 }
 @media (min-width: 768px) {
   .info-section .gallery-info .gallery-cards {
     flex-direction: row;
-    justify-content: center;
-    align-items: space-around;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 .info-section .gallery-info .gallery-cards img {
@@ -329,14 +349,14 @@ footer .footer-container {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-items: space-around;
   gap: 32px;
 }
 @media (min-width: 768px) {
   footer .footer-container {
     flex-direction: row;
-    justify-content: center;
-    align-items: space-around;
+    justify-content: space-around;
+    align-items: center;
   }
 }/*# sourceMappingURL=main.css.map */

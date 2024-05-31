@@ -12,7 +12,6 @@ body {
 }
 
 section {
-  width: 100%;
   margin: auto;
   max-width: 1200px;
   padding: 0px 16px;
@@ -23,6 +22,7 @@ section h3 {
 
 nav {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -40,6 +40,9 @@ nav h1 {
 }
 nav .icons {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }
 nav .icons button {
@@ -61,21 +64,29 @@ nav .icons button {
 article {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
   padding: 0px 16px;
 }
 @media (min-width: 768px) {
   article {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  article {
     margin: auto;
     max-width: 1200px;
-    flex-direction: row;
   }
 }
 article .impact-section {
-  padding: 24px 0px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px 0px;
   gap: 62px;
 }
 @media (min-width: 768px) {
@@ -127,18 +138,34 @@ article .image-section img {
   padding: 24px 0;
 }
 .health-products h3, .forniture-products h3 {
-  margin-bottom: 60px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .health-products h3, .forniture-products h3 {
+    margin-bottom: 60px;
+  }
 }
 .health-products .card-section, .forniture-products .card-section {
   display: flex;
-  justify-content: center;
-  gap: 24px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 24px;
+  padding: 0px;
 }
-.health-products .card-section .product-card, .forniture-products .card-section .product-card, .health-products .card-section .product-card--forniture, .forniture-products .card-section .product-card--forniture {
+@media (min-width: 768px) {
+  .health-products .card-section, .forniture-products .card-section {
+    padding: 0 24px;
+    gap: 42px;
+  }
+}
+.health-products .product-card, .forniture-products .product-card, .health-products .product-card--forniture, .forniture-products .product-card--forniture {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   padding: 12px;
   width: 250px;
@@ -147,10 +174,10 @@ article .image-section img {
   background-color: #ffdac6;
   border-radius: 8px;
 }
-.health-products .card-section .product-card h4, .forniture-products .card-section .product-card h4, .health-products .card-section .product-card--forniture h4, .forniture-products .card-section .product-card--forniture h4 {
+.health-products .product-card h4, .forniture-products .product-card h4, .health-products .product-card--forniture h4, .forniture-products .product-card--forniture h4 {
   font-size: 24px;
 }
-.health-products .card-section .product-card .product-image, .forniture-products .card-section .product-card .product-image, .health-products .card-section .product-card--forniture .product-image, .forniture-products .card-section .product-card--forniture .product-image {
+.health-products .product-card .product-image, .forniture-products .product-card .product-image, .health-products .product-card--forniture .product-image, .forniture-products .product-card--forniture .product-image {
   width: 100%;
   height: 250px;
   border-radius: 8px 8px 0 0;
@@ -158,17 +185,158 @@ article .image-section img {
   align-items: center;
   overflow: hidden;
 }
-.health-products .card-section .product-card .product-image img, .forniture-products .card-section .product-card .product-image img, .health-products .card-section .product-card--forniture .product-image img, .forniture-products .card-section .product-card--forniture .product-image img {
+.health-products .product-card .product-image img, .forniture-products .product-card .product-image img, .health-products .product-card--forniture .product-image img, .forniture-products .product-card--forniture .product-image img {
   width: 100%;
 }
-.health-products .card-section .product-card--forniture, .forniture-products .card-section .product-card--forniture {
+.health-products .product-card--forniture, .forniture-products .product-card--forniture {
   background-color: #BABD8D;
   color: #ffefe7;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.info-section .why-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 0;
+  width: 100%;
+}
+.info-section .why-info h3 {
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .info-section .why-info h3 {
+    margin-bottom: 60px;
+  }
+}
+.info-section .why-info .section-why {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+}
+@media (min-width: 768px) {
+  .info-section .why-info .section-why {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.info-section .why-info .section-why .image-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .info-section .why-info .section-why .image-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-between;
+  }
+}
+.info-section .why-info .section-why .image-content img {
+  width: 150px;
+}
+.info-section .gallery-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 0;
+  width: 100%;
+}
+.info-section .gallery-info h3 {
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .info-section .gallery-info h3 {
+    margin-bottom: 60px;
+  }
+}
+.info-section .gallery-info .gallery-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .info-section .gallery-info .gallery-cards {
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-around;
+  }
+}
+.info-section .gallery-info .gallery-cards img {
+  border-radius: 8px;
+  width: 250px;
+  height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 16px 0px;
+}
+.info-section .map-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 0;
+  width: 100%;
+}
+.info-section .map-info h3 {
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .info-section .map-info h3 {
+    margin-bottom: 60px;
+  }
+}
+.info-section .map-info .img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.info-section .map-info .img-container img {
+  width: 100%;
 }
 
 footer {
   background-color: #fa9500;
   width: 100%;
-  height: 250px;
+  height: -moz-fit-content;
+  height: fit-content;
   color: #ffefe7;
+}
+footer .footer-container {
+  padding: 32px 16px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  footer .footer-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-around;
+  }
 }/*# sourceMappingURL=main.css.map */

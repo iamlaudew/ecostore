@@ -21,6 +21,32 @@ $font-stack: "IBM Plex Sans", sans-serif;
   }
 }
 
+@mixin flexbox($direction, $content, $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $align;
+}
+@mixin flexColumntoRow($direction: column, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $align;
+  align-items: $justify;
+  @include respond-to(tablet) {
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+    
+  }
+}
+
+@mixin button-style{
+  button{
+    background-color: transparent;
+    border: none;
+  }
+}
+
 //Section estilos globales
 
 *{
@@ -35,7 +61,6 @@ body{
   font-size: 16px;
 }
 section{
-  width: 100%;
   margin: auto;
   max-width: 1200px;
   padding: 0px 16px;
@@ -47,9 +72,7 @@ section{
 // Barra de navegación
 
 nav{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexbox(row, space-between, center);
   width: 100%;
   max-width: 1200px;
   margin: auto;
@@ -62,7 +85,7 @@ nav{
   
   }
   .icons{
-    display: flex;
+    @include flexbox(row, space-between, center);
     gap: 8px;
     button{
       padding: 4px;
@@ -81,20 +104,15 @@ nav{
 // Inicio Article
 
 article{
-  display: flex;
-  flex-direction: column;
+  @include flexColumntoRow( column, space-between, center);
   padding: 0px 16px;
   @include respond-to(tablet) {
-    justify-content: space-between;
-    align-items: center;
     margin: auto;
     max-width: 1200px;
-    flex-direction: row;
   }
   .impact-section{
+    @include flexbox(column,flex-start , flex-start);
     padding: 24px 0px;
-    display: flex;
-    flex-direction: column;
     gap: 62px;
     @include respond-to(tablet) {
     width: 50%;
@@ -142,44 +160,50 @@ article{
 .health-products{
   padding: 24px 0;
   h3{
-    margin-bottom: 60px;
+    align-self: flex-start;
+    margin-bottom: 24px;
+    @include respond-to(tablet){
+      margin-bottom: 60px;
+      }
   }
   .card-section{
-    display: flex;
-    justify-content: center;
-    gap: 24px;
+    @include flexbox(row, space-evenly, center);
     flex-wrap: wrap;
-    .product-card{
+    gap: 24px;
+    padding: 0px;
+    @include respond-to(tablet){
+      padding: 0 24px;
+      gap: 42px;
+      }
+  }
+  .product-card{
+    @include flexbox(column, space-between, flex-start);
+    gap: 16px;
+    padding: 12px;
+    width: 250px;
+    height: 440px;
+    overflow: hidden;
+    background-color: $secondaty-color;
+    border-radius: 8px;
+    h4{
+      font-size: 24px;
+    }
+    .product-image{
+      width: 100%;
+      height: 250px;
+      border-radius: 8px 8px 0 0;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px;
-      width: 250px;
-      height: 440px;
+      align-items: center;
       overflow: hidden;
-      background-color: $secondaty-color;
-      border-radius: 8px;
-      h4{
-        font-size: 24px;
-      }
-      .product-image{
+      img{
         width: 100%;
-        height: 250px;
-        border-radius: 8px 8px 0 0;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        img{
-          width: 100%;
-        }
       }
     }
-    .product-card--forniture{
-      @extend .product-card;
-      background-color: $tertiary-color;
-      color: $primary-color;
-    }
+  }
+  .product-card--forniture{
+    @extend .product-card;
+    background-color: $tertiary-color;
+    color: $primary-color;
   }
 }
 
@@ -189,12 +213,91 @@ article{
   @extend .health-products;
 }
 
+// Info section
+
+.info-section{
+  @include flexbox(column, space-between, flex-start);
+  .why-info{
+    @include flexbox(column, space-between, flex-start);
+    padding: 24px 0;
+    width: 100%;
+    h3{
+      align-self: flex-start;
+      margin-bottom: 24px;
+      @include respond-to(tablet){
+        margin-bottom: 60px;
+        }
+    }
+    .section-why{
+      @include flexColumntoRow( column, space-between, center);
+      .image-content{
+        width: 100%;
+        @include flexColumntoRow(column, center, space-between);
+        align-items: center;
+        text-align: center;
+        img{
+          width: 150px;
+        }
+      }
+    }
+  }
+  .gallery-info{
+    @include flexbox(column, space-between, flex-start);
+    padding: 24px 0;
+    width: 100%;
+    h3{
+      align-self: flex-start;
+      margin-bottom: 24px;
+      @include respond-to(tablet){
+        margin-bottom: 60px;
+        }
+    }
+    .gallery-cards{
+      width: 100%;
+      @include flexColumntoRow(column, center, space-around);
+      align-items: center;
+      img{
+        border-radius: 8px;
+        width: 250px;
+        height: 240px;
+        object-fit: cover;
+        margin: 16px 0px;
+      }
+    }
+  }
+  .map-info{
+    @include flexbox(column, space-between, flex-start);
+    padding: 24px 0;
+    width: 100%;
+    h3{
+      align-self: flex-start;
+      margin-bottom: 24px;
+      @include respond-to(tablet){
+        margin-bottom: 60px;
+        }
+    }
+    .img-container{
+      @include flexbox(column, space-between, flex-start);
+      gap: 16px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
 // Footer
 
 footer{
-
   background-color: $quarter-color;
   width: 100%;
-  height: 250px;
+  height: fit-content;
   color: $primary-color;
+  .footer-container{
+    padding: 32px 16px;
+    max-width: 1200px;
+    margin: auto;
+    @include flexColumntoRow(column, center, space-around);
+    gap: 32px;
+  }
 }
